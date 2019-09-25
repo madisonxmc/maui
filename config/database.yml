@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+  password: password
+  host: localhost
+
+development:
+  <<: *default
+  database: maui_development
+
+test:
+  <<: *default
+  database: maui_test
+  
+production:
+  <<: *default
+  database: maui_production
+  # username: maui
+  # password: <%= ENV['MAUI_DATABASE_PASSWORD'] %>
